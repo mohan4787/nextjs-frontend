@@ -14,13 +14,13 @@ const HomeHeader = () => {
   const router = useRouter();
 
   const handleLogout = () => {
-    // 1. Clear local storage
+
     localStorage.removeItem("_at_movieticket");
-    // 2. Reset Auth State
+
     setLoggedInUserProfile(null);
-    // 3. Close mobile menu if open
+
     setIsMenuOpen(false);
-    // 4. Redirect
+
     router.push("/login");
   };
 
@@ -37,7 +37,7 @@ const HomeHeader = () => {
       <nav className="bg-white border-b border-gray-200 px-4 lg:px-6 py-3">
         <div className="flex justify-between items-center mx-auto max-w-7xl">
           
-          {/* 1. Logo Section */}
+
           <Link href="/" className="flex items-center space-x-3">
             <Image
               src={logo}
@@ -51,7 +51,7 @@ const HomeHeader = () => {
             </span>
           </Link>
 
-          {/* 2. Desktop Navigation Links */}
+
           <div className="hidden lg:flex items-center space-x-8">
             <ul className="flex flex-row space-x-8 font-semibold">
               {navLinks.map((link) => (
@@ -67,14 +67,14 @@ const HomeHeader = () => {
             </ul>
           </div>
 
-          {/* 3. Right Side: Auth Logic (Login or Profile) */}
+         
           <div className="flex items-center lg:order-2 space-x-4">
             
             {loggedInUser ? (
-              // --- Logged In View ---
+             
               <div className="flex items-center space-x-3 md:space-x-5">
                 
-                {/* User Identity Card */}
+  
                 <div className="flex items-center space-x-2 group cursor-pointer">
                   <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full border-2 border-red-500 shadow-sm transition-transform group-hover:scale-105">
                     {loggedInUser.image?.secureUrl ? (
@@ -98,7 +98,7 @@ const HomeHeader = () => {
                   </div>
                 </div>
 
-                {/* Logout Button */}
+             
                 <button
                   onClick={handleLogout}
                   className="p-2 md:px-4 md:py-2 flex items-center space-x-2 bg-gray-50 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-xl transition-all duration-200 border border-gray-100"
@@ -108,7 +108,7 @@ const HomeHeader = () => {
                 </button>
               </div>
             ) : (
-              // --- Logged Out View ---
+        
               <Link
                 href="/login"
                 className="bg-red-600 text-white hover:bg-red-700 font-bold rounded-xl text-sm px-6 py-2.5 shadow-lg shadow-red-200 transition-all active:scale-95"
@@ -117,7 +117,7 @@ const HomeHeader = () => {
               </Link>
             )}
 
-            {/* Mobile Menu Icon */}
+           
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center p-2 text-gray-600 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none"
@@ -127,11 +127,11 @@ const HomeHeader = () => {
           </div>
         </div>
 
-        {/* 4. Mobile Menu Overlay */}
+      
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pb-6 border-t border-gray-100 animate-in slide-in-from-top-2 duration-300">
             
-            {/* Mobile Profile Display */}
+            
             {loggedInUser && (
               <div className="flex items-center space-x-4 p-4 mt-4 bg-red-50 rounded-2xl">
                 <div className="relative w-12 h-12 bg-white rounded-full overflow-hidden border-2 border-white shadow-md">

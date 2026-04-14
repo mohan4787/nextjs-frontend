@@ -36,9 +36,7 @@ const LoginForm = () => {
     try {
       await authSvc.loginUser(credentials);
       const userProfileResponse = await authSvc.getLoggedInUserProfile();
-      toast.success(
-        "Welcome to " + userProfileResponse.data.role + " Panel!"
-      );
+      toast.success("Welcome to " + userProfileResponse.data.role + " Panel!");
       setLoggedInUserProfile(userProfileResponse.data);
       router.push("/");
     } catch (exception: unknown) {
@@ -49,9 +47,7 @@ const LoginForm = () => {
   return (
     <>
       <div className="flex w-full flex-col border-b border-white/30 pb-3 mb-4">
-        <h1 className="text-3xl font-semibold text-white text-center">
-          Login
-        </h1>
+        <h1 className="text-3xl font-semibold text-white text-center">Login</h1>
         <p className="text-sm text-gray-300 text-center">
           Login to book your favorite movies instantly
         </p>
@@ -123,9 +119,9 @@ const LoginForm = () => {
         </Link>
       </p>
       <p className="text-center text-sm text-gray-300">
-        Login as {" "}
+        Login as{" "}
         <Link
-          href="http://localhost:5173/"
+          href={process.env.NEXT_PUBLIC_FRONTEND_URL || "#"}
           className="text-red-400 hover:text-red-500 hover:underline"
         >
           Admin

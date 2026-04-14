@@ -18,7 +18,7 @@ const MovieCard = ({ movie }: { movie: IMovieData }) => {
 
   const handleClick = () => {
     if (!isInactive) {
-      // Navigate to showtime page
+    
       router.push(`/showtime/${movie._id}`);
     }
   };
