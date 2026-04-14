@@ -9,7 +9,6 @@ import {
   QrcodeOutlined 
 } from '@ant-design/icons';
 import 'dayjs/locale/en';
-import authSvc from '@/services/auth.service';
 import dayjs from 'dayjs';
 import ticketService from '@/services/ticket.service';
 import { useEffect, useState } from 'react';
