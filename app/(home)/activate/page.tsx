@@ -2,13 +2,13 @@
 
 import authSvc from "@/services/auth.service";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Updated for Next.js
+import { useRouter } from "next/navigation"; 
 import { toast } from "sonner";
 
 const ActivateUser = () => {
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter(); // Next.js App Router hook
+  const router = useRouter(); 
 
   const handleVerify = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,21 +19,14 @@ const ActivateUser = () => {
 
     try {
       setLoading(true);
-      console.log("hello:",otp);
-      
-
-      // It's better to type your response if possible, using 'any' sparingly
       const res = await authSvc.postRequest("/auth/activate", { 
         token:otp
        });
-      console.log("response:", res);
+
 
       toast.success("Account activated! Redirecting to login...");
-
-      // router.push is the Next.js equivalent of navigate()
       setTimeout(() => router.push("/login"), 2000);
     } catch (error: any) {
-      // Handling potential Axios or Fetch error structures
       const message =
         error?.response?.data?.message ||
         error?.data?.message ||
@@ -44,9 +37,9 @@ const ActivateUser = () => {
     }
   };
 
-  // Helper to ensure only numbers are entered
+
   const handleOtpChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value.replace(/\D/g, ""); // Remove non-digits
+    const val = e.target.value.replace(/\D/g, ""); 
     setOtp(val);
   };
 
@@ -63,7 +56,7 @@ const ActivateUser = () => {
         <form onSubmit={handleVerify} className="space-y-4">
           <input
             type="text"
-            inputMode="numeric" // Shows numeric keypad on mobile
+            inputMode="numeric" 
             placeholder="000000"
             maxLength={6}
             value={otp}
