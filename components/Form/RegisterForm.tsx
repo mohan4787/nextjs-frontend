@@ -34,7 +34,7 @@ const RegisterForm = () => {
       toast.success(response.message || "Registration Successful!");
       
       // Navigate to home/login using Next.js router
-      router.push("/"); 
+      router.push("/activate"); 
     } catch (exception: any) {
       if (exception.error) {
         Object.keys(exception.error).forEach((field) => {
