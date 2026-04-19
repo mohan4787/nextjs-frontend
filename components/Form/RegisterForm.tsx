@@ -15,12 +15,12 @@ import { toast } from "sonner";
 import authSvc from "../../services/auth.service";
 import { useForm } from "react-hook-form";
 
-// --- NEXT.JS SPECIFIC IMPORTS ---
+
 import Link from "next/link"; 
 import { useRouter } from "next/navigation"; 
 
 const RegisterForm = () => {
-  // --- NEXT.JS ROUTER HOOK ---
+
   const router = useRouter(); 
   
   const { control, handleSubmit, formState: { errors, isSubmitting }, setError } = useForm<IRegisterUser>({
@@ -33,7 +33,7 @@ const RegisterForm = () => {
       const response = await authSvc.registerUser(data);
       toast.success(response.message || "Registration Successful!");
       
-      // Navigate to home/login using Next.js router
+      
       router.push("/activate"); 
     } catch (exception: any) {
       if (exception.error) {

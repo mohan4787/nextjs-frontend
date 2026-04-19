@@ -155,7 +155,7 @@ function VerifyContent() {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button 
-                    onClick={() => router.push(`/tickets/${orderDetails?._id}`)}
+                    onClick={() => router.push(`/my-bookings`)}
                     className="flex-1 py-4 bg-slate-900 hover:bg-black text-white rounded-2xl font-black flex items-center justify-center gap-2 transition-all shadow-lg shadow-slate-200"
                   >
                     View Full Ticket <Ticket size={18} />
